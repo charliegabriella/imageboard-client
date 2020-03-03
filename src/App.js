@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import store from "./store";
 import ListContainer from "./components/ListContainer";
+
 import { Provider } from "react-redux";
 
 class App extends Component {

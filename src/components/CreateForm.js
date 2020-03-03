@@ -1,1 +1,28 @@
-import React from "react";
+import React, { Component } from "react";
+
+export default class CreateForm extends Component {
+  render() {
+    console.log("this.props", this.props);
+    return (
+      <form onSubmit={this.props.onSubmit}>
+        <input
+          type="text"
+          name="title"
+          placeholder="title"
+          value={this.props.values.title}
+          onChange={this.props.onChange}
+        />
+        <input
+          type="text"
+          name="url"
+          placeholder="url"
+          value={this.props.values.url}
+          onChange={this.props.onChange}
+        />
+        <button onSubmit={this.props.onSubmit} type="submit">
+          Submit
+        </button>
+      </form>
+    );
+  }
+}
