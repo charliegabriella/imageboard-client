@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import List from "./List";
 import CreateFormContainer from "./CreateFormContainer";
 import LoginFormContainer from "./LoginFormContainer";
+import SignUpFormContainer from "./SignUpFormContainer";
 
 class ListContainer extends Component {
   componentDidMount() {
@@ -20,9 +21,10 @@ class ListContainer extends Component {
     } else {
       return (
         <div>
-          <h2>Login if you have an account</h2>
+          <h2>Hello friend</h2>
           <LoginFormContainer />
-          <h2>Sign up for a new account</h2>
+          <h2>Hello friend? That's lame. Maybe I should give you a name.</h2>
+          <SignUpFormContainer />
         </div>
       );
     }

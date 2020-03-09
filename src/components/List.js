@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CreateFormContainer from "./CreateFormContainer";
+import SignUpFormContainer from "./SignUpFormContainer";
 import LoginFormContainer from "./LoginFormContainer.js";
 
 export default class List extends Component {
@@ -12,7 +13,7 @@ export default class List extends Component {
     ));
 
     const form = this.props.user ? (
-      <CreateFormContainer />
+      ((<CreateFormContainer />), (<SignUpFormContainer />))
     ) : (
       <LoginFormContainer />
     );

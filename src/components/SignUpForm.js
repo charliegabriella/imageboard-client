@@ -5,7 +5,7 @@ export default props => {
   console.log("props.values.email", props.values.email);
   return (
     <form onSubmit={props.onSubmit}>
-      <label>User E-mail</label>
+      <label>Your e-mail</label>
       <input
         placeholder="email"
         type="text"

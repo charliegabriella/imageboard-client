@@ -1,7 +1,12 @@
-import request from "superagent";
-export const ALL_IMAGES = "ALL_IMAGES";
-const baseUrl = "https://obscure-bayou-01158.herokuapp.com/";
+import request from "superagent"; //CONNECTS CLIENT 2 SERVER
 
+export const ALL_IMAGES = "ALL_IMAGES";
+export const NEW_IMAGE = "NEW_IMAGE";
+export const NEW_USER = "NEW_USER";
+
+const baseUrl = "http://localhost:4000";
+
+//GETTING ALL IMAGES
 function allImages(payload) {
   return {
     type: ALL_IMAGES,
@@ -22,7 +27,7 @@ export const getImages = () => (dispatch, getState) => {
   }
 };
 
-export const NEW_IMAGE = "NEW_IMAGE";
+//CREATING IMAGE
 function newImage(payload) {
   return {
     type: NEW_IMAGE,
@@ -43,6 +48,8 @@ export const createImage = data => (dispatch, getState) => {
     })
     .catch(console.error);
 };
+
+//LOG IN
 export const JWT = "JWT";
 
 function jwt(payload) {
@@ -58,7 +65,25 @@ export const login = (email, password) => dispatch => {
     .send({ email, password })
     .then(response => {
       const action = jwt(response.body.jwt);
+      dispatch(action);
+    })
+    .catch(console.error);
+};
 
+//SING UP AS NEW USER
+function addUser(payload) {
+  return {
+    type: "NEW_USER",
+    payload
+  };
+}
+
+export const signup = (email, password) => dispatch => {
+  request
+    .post(`${baseUrl}/signup`)
+    .send({ email, password })
+    .then(response => {
+      const action = addUser(response.body.jwt);
       dispatch(action);
     })
     .catch(console.error);

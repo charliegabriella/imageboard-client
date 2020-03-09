@@ -5,6 +5,7 @@ export default class CreateForm extends Component {
     console.log("this.props", this.props);
     return (
       <form onSubmit={this.props.onSubmit}>
+        <label>Wanna submit your own cool picture? Go ahead!</label>
         <input
           type="text"
           name="title"
